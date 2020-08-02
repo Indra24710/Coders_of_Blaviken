@@ -1,4 +1,4 @@
-<template>
+<template :key="r">
   <div>
     <modal-box
       :is-active="isModalActive"
@@ -168,6 +168,7 @@ export default {
       trashID: '',
       trashInfo: '',
       tf: '',
+      r: 0,
     };
   },
   computed: {
@@ -273,6 +274,9 @@ export default {
             message: 'Successfully marked as ' + this.tf,
             queue: false,
           });
+          setTimeout(() => {
+            window.location.reload();
+          }, 1500);
         })
         .catch(err => {
           console.log(err);
