@@ -1,4 +1,4 @@
-<template :key="r">
+<template>
   <div>
     <modal-box
       :is-active="isModalActive"
@@ -24,25 +24,13 @@
       ref="table"
     >
       <template slot-scope="props">
-        <b-table-column label="Detection ID" field="id" searchable sortable>
+        <b-table-column label="Violence ID" field="id" searchable sortable>
           <template slot="header" slot-scope="{column}">
             <b-tooltip label="Search with the detection ID using the box!" dashed>
               <p class="is-family-monospace">{{ column.label }}</p>
             </b-tooltip>
           </template>
           {{ props.row.id }}
-        </b-table-column>
-        <b-table-column label="Criminal ID" field="cid" searchable sortable>
-          <template slot="header" slot-scope="{column}">
-            <b-tooltip label="Search with the Criminal ID using the box!" dashed>
-              <p class="is-family-monospace">{{ column.label }}</p>
-            </b-tooltip>
-          </template>
-          <nuxt-link
-            :to="{name: 'criminal-cid', params: {cid: props.row.cid}}"
-            class="button is-small is-link has-text-weight-bold"
-            >{{ props.row.cid }}</nuxt-link
-          >
         </b-table-column>
         <b-table-column label="Location: Coordinates" field="location" sortable centered>
           <template slot="header" slot-scope="{column}">
@@ -52,11 +40,11 @@
           </template>
           {{ props.row.location }}
         </b-table-column>
-        <b-table-column class="image is-square" label="Detected Image">
+        <b-table-column label="Detected Image">
           <template slot="header" slot-scope="{column}">
             <p class="is-family-monospace">{{ column.label }}</p>
           </template>
-          <img class="zoom" :src="props.row.rsrc" />
+          <video :src="props.row.rsrc" class="zoom" controls />
         </b-table-column>
         <b-table-column label="Time Stamp" field="time_stamp" searchable sortable>
           <template slot="header" slot-scope="{column}">
@@ -168,7 +156,6 @@ export default {
       trashID: '',
       trashInfo: '',
       tf: '',
-      r: 0,
     };
   },
   computed: {
@@ -229,7 +216,7 @@ export default {
     trashConfirm() {
       this.isModalActive = false;
       this.$axios
-        .get('https://coders-of-blaviken-api.herokuapp.com/api/detections/' + this.trashID)
+        .get('https://coders-of-blaviken-api.herokuapp.com/api/violence/' + this.trashID)
         .then(res => {
           this.trashInfo = res.data.detections[0];
           this.updateDetection();
@@ -245,16 +232,12 @@ export default {
     updateDetection() {
       console.log(
         this.trashID,
-        this.trashInfo.cid,
         this.trashInfo.location,
         this.trashInfo.rsrc,
         this.trashInfo.time_stamp,
         this.tf
       );
       let body =
-        'cid=' +
-        this.trashInfo.cid +
-        '&' +
         'location=' +
         this.trashInfo.location +
         '&' +
@@ -267,16 +250,13 @@ export default {
         'valid=' +
         this.tf;
       this.$axios
-        .put('https://coders-of-blaviken-api.herokuapp.com/api/detections/' + this.trashID, body)
+        .put('https://coders-of-blaviken-api.herokuapp.com/api/violence/' + this.trashID, body)
         .then(res => {
           // console.log(res);
           this.$buefy.snackbar.open({
             message: 'Successfully marked as ' + this.tf,
             queue: false,
           });
-          setTimeout(() => {
-            window.location.reload();
-          }, 1500);
         })
         .catch(err => {
           console.log(err);

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bgColorMain"
+    android:orientation="vertical"
+    tools:context=".Activities.MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <Button
+            android:layout_width="match_parent"
+            android:id="@+id/button_capture"
+            android:text="@string/click_button"
+            android:layout_weight="1"
+            android:background="@drawable/button"
+            android:layout_margin="5sp"
+            android:textColor="@color/colorText"
+            android:layout_height="wrap_content">
+
+        </Button>
+        <Button
+            android:layout_width="match_parent"
+            android:id="@+id/button_choose"
+            android:text="@string/gallery_button"
+            android:layout_margin="5sp"
+            android:background="@drawable/button"
+            android:textColor="@color/colorText"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+        </Button>
+    </LinearLayout>
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        android:layout_weight="1"
+        android:tooltipText="@string/imageviewtooltip"
+        android:id="@+id/criminal_image_iv"
+        tools:targetApi="o" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:textColor="@color/colorText"
+        android:layout_margin="5sp"
+        android:id="@+id/upload_suspect"
+        android:text="@string/uploadbutton"/>
+</LinearLayout>
