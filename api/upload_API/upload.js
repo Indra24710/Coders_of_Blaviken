@@ -74,7 +74,18 @@ const videoUpload = async(req, res, next) => {
     }
 }
 
+const violenceUpload = async(req, res, next) => {
+    try {
+        const video = await uploadFileToBlob('videos', req.file); // videos is a directory in the detections container
+        return res.json(video);
+    } 
+    catch (error) {
+        next(error);
+    }
+}
+
 app.post('/upload/image', singleFileUpload.single('image'), imageUpload)
 app.post('/upload/video', singleFileUpload.single('video'), videoUpload)
+app.post('/upload/violence', singleFileUpload.single('video'), violenceUpload)
 
 app.listen(port, () => console.log(`App listening on port ${port}!`))
