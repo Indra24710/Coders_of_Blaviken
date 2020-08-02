@@ -56,3 +56,21 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.media-wrapper {
+  // padding: 1rem -1rem 1rem 1rem;
+  border-radius: 10px;
+  height: 60px;
+  width: 200px;
+  position: fixed;
+  z-index: 9001;
+  right: calc(3vw + 10px);
+  top: calc(3vh + 0.2rem);
+  cursor: pointer;
+  background-color: #0068ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+</style>

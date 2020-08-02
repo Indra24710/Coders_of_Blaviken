@@ -44,16 +44,15 @@
           <div class="content">
             <p class="title">Detections 🌍</p>
             <!-- <p class="subtitle">With even more content</p> -->
-            <div class="content">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15666.035794074467!2d77.02311632666643!3d11.000389224715542!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x4a6ff9afe6fbc8b3!2sSINGANALLUR%20BUS%20STAND!5e0!3m2!1sen!2sin!4v1595945232309!5m2!1sen!2sin"
-                width="600"
-                frameborder="0"
-                style="border:0; height: 60vh;"
-                allowfullscreen=""
-                aria-hidden="false"
-                tabindex="0"
-              ></iframe>
+            <div class="content" v-if="isMounted">
+              <div v-if="displayMap">
+                <ProfileMaps :coord="mapData" />
+              </div>
+            </div>
+            <div v-if="!displayMap">
+              <b-message type="is-warning" has-icon icon="frown" icon-pack="fas">
+                <p class="is-family-monospace is-size-5">No detections for this criminal yet!</p>
+              </b-message>
             </div>
           </div>
         </article>
@@ -63,42 +62,60 @@
 </template>
 
 <script>
+import ProfileMaps from '@/components/ProfileMaps';
 export default {
   name: 'ProfileCard',
   props: ['cid', 'img_rsc', 'name', 'gender', 'severity'],
-  mounted() {
-    // document.getElementById('c-image').setAttribute('src', this.img_rsc);
+  components: {
+    ProfileMaps,
   },
+
   data() {
     return {
-      currentLocation: {},
-      circleOptions: {},
-      locations: [
-        {
-          lat: 44.933076,
-          lng: 15.629058,
-        },
-        {
-          lat: 45.815,
-          lng: '15.9819',
-        },
-        {
-          lat: '45.12',
-          lng: '16.21',
-        },
-      ],
-      pins: {},
-      mapStyle: [],
-      clusterStyle: [
-        {
-          url:
-            'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m1.png',
-          width: 56,
-          height: 56,
-          textColor: '#fff',
-        },
-      ],
+      detections: [],
+      lats: [],
+      mapData: [],
+      isMounted: false,
+      displayMap: false,
     };
+  },
+  mounted() {
+    this.$axios
+      .get('https://coders-of-blaviken-api.herokuapp.com/api/detections/')
+      .then(r => {
+        this.isLoading = false;
+        if (r.data && r.data.detections) {
+          this.detections = r.data.detections;
+          this.detections.forEach(el => {
+            if (el['cid'] == this.cid) {
+              let val = el['location'];
+              this.lats.push(val);
+            }
+          });
+          // console.log(this.lats);
+          for (let i = 0; i < this.lats.length; i++) {
+            let res = this.lats[i].split('Lats');
+            this.mapData.push(res);
+            // console.log(res);
+          }
+          // console.log(this.mapData);
+          if (this.mapData.length > 0) {
+            this.displayMap = true;
+          }
+          let i = 0;
+          this.detections.forEach(el => {
+            el['location'] = this.mapData[i];
+            i = i + 1;
+          });
+          // console.log(this.mapData);
+          this.isMounted = true;
+          // console.log(this.lats);
+          // console.log(this.detections);
+        }
+      })
+      .catch(err => {
+        console.log(err);
+      });
   },
 };
 </script>
