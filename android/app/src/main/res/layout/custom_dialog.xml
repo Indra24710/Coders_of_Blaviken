@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:background="@color/bgColorMain"
+    android:layout_margin="20sp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textColor="@color/colorText"
+        android:text="@string/customcid"/>
+    <EditText
+        android:id="@+id/dialoged"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="36dp"
+        android:ems="10"
+        android:textColor="@color/colorText"
+        android:backgroundTint="@color/colorAccent"
+        android:inputType="number"/>
+
+</LinearLayout>
