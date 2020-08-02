@@ -102,3 +102,11 @@ export default {
   },
 };
 </script>
+<style>
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* max-height: 20vh; */
+}
+</style>
