@@ -1,7 +1,7 @@
 <h1 align="center"> Jatayu Criminal Tagging </h1> <br>
 <p align="center">
   <a href="http://jatayu.org/">
-    <img alt="Jatayu" title="Jatayu" src="https://i.imgur.com/RKlSJO7.png" width="300">
+    <img alt="Jatayu" title="Jatayu" src="https://i.imgur.com/gn7XLBF.png" width="100">
   </a>
 </p>
 
@@ -15,7 +15,7 @@
   </a> -->
 
   <a href="https://drive.google.com/file/d/1jf2gF54voIMy7eVFV71OjMqzVqdjYPup/view">
-    <img alt="Get it on Google Drive" title="Google Drive" src="https://file.wiki/wp-content/uploads/2018/10/Download-Google-Drive-File-Stream-Offline-Installer-1.png" width="140">
+    <img alt="Get it on Google Drive" title="Google Drive" src="https://file.wiki/wp-content/uploads/2018/10/Download-Google-Drive-File-Stream-Offline-Installer-1.png" width="80">
   </a>
 </p>
 
@@ -62,7 +62,7 @@ A few of the things you can do with Jatayu:
 * Easily search for any criminal or detection
 
 <p align="center">
-  <img src = "https://i.imgur.com/qK5LRqx.png" width=700 style="border-radius:5%;">
+  <img src = "https://i.imgur.com/n6nLzrB.png" width=700 style="border-radius:5%;">
 </p>
 
 
