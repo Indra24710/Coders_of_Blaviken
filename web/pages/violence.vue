@@ -1,7 +1,7 @@
 <template>
   <div class="page">
-    <PageHead subtitle="Detection & Tracking" title="Violence Detection" />
-    <Card class="has-table">
+    <PageHead :subtitle="$t('dat')" :title="$t('viod')" />
+    <Card class="has-table" title="Click on the arrow on the left to open map!">
       <ViolenceTable data-url="https://coders-of-blaviken-api.herokuapp.com/api/violence/" />
     </Card>
   </div>

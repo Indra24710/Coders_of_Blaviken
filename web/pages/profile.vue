@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <PageHead title="Profile" subtitle="Account" />
+    <PageHead :title="$t('pro')" :subtitle="$t('acc')" />
     <div class="section">
       <div class="media">
         <div class="media-left pad is-hidden-mobile">
