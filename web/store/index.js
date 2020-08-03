@@ -7,7 +7,7 @@ const createStore = () => {
     state: {
       user: '',
       locales: ['en', 'hi'],
-      locale: 'en'
+      locale: 'en',
     },
     getters: {
       user() {
@@ -23,9 +23,9 @@ const createStore = () => {
       },
       SET_LANG(state, locale) {
         if (state.locales.indexOf(locale) !== -1) {
-          state.locale = locale
+          state.locale = locale;
         }
-      }
+      },
     },
     actions: {
       signInWithEmail({commit}, {email, password}) {
