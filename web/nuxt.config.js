@@ -3,6 +3,7 @@ const routerBase =
     ? {
         router: {
           base: '/jatayu/',
+          middleware: 'i18n',
         },
       }
     : {};
@@ -11,6 +12,7 @@ export default {
   mode: 'spa',
   generate: {
     fallback: true,
+    routes: ['/', '/about', '/fr', '/fr/about'],
   },
   /*
    ** Headers of the page
@@ -24,6 +26,10 @@ export default {
         hid: 'description',
         name: 'description',
         content: process.env.npm_package_description || '',
+      },
+      {
+        'http-equiv': 'Content-Security-Policy',
+        content: 'upgrade-insecure-requests',
       },
     ],
     link: [
@@ -52,6 +58,7 @@ export default {
     },
     '@/plugins/firebase.js',
     '@/plugins/fireauth.js',
+    '@/plugins/i18n.js',
   ],
 
   env: {
@@ -82,6 +89,27 @@ export default {
         key: process.env.GMAPS_API_KEY,
       },
     ],
+    // [
+    //   'nuxt-i18n',
+    //   {
+    //     locales: [
+    //       {
+    //         name: 'Hindi',
+    //         code: 'hi',
+    //         iso: 'hi',
+    //         file: 'hi.js',
+    //       },
+    //       {
+    //         name: 'English',
+    //         code: 'en',
+    //         iso: 'en-US',
+    //         file: 'en-US.js',
+    //       },
+    //     ],
+    //     langDir: 'lang/',
+    //     defaultLocale: 'it',
+    //   },
+    // ],
   ],
   /*
    ** Axios module configuration
@@ -98,6 +126,14 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {},
+    postcss: {
+      preset: {
+        features: {
+          customProperties: false,
+        },
+      },
+    },
+    vendor: ['vue-i18n'],
   },
 
   pwa: {
