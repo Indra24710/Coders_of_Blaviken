@@ -21,7 +21,7 @@
         <ImageView
             android:layout_width="50sp"
             android:layout_height="50sp"
-            android:src="@drawable/logo" />
+            android:src="@drawable/search" />
 
         <EditText
             android:id="@+id/vid_ed"
@@ -56,15 +56,15 @@
                 android:text="@string/nodetavailable"
                 android:visibility="gone"
                 android:id="@+id/nodata" />
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/floatingActionButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="50dp"
-                android:layout_gravity="bottom|right"
-                android:layout_marginBottom="50dp"
-                android:clickable="true"
-                app:srcCompat="@android:drawable/ic_menu_add" />
+<!--            <com.google.android.material.floatingactionbutton.FloatingActionButton-->
+<!--                android:id="@+id/floatingActionButton"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginEnd="50dp"-->
+<!--                android:layout_gravity="bottom|right"-->
+<!--                android:layout_marginBottom="50dp"-->
+<!--                android:clickable="true"-->
+<!--                app:srcCompat="@android:drawable/ic_menu_add" />-->
         </FrameLayout>
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

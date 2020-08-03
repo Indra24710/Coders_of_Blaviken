@@ -18,7 +18,7 @@
             <ImageView
                 android:layout_width="50sp"
                 android:layout_height="50sp"
-                android:src="@drawable/logo"/>
+                android:src="@drawable/search" />
             <EditText
                 android:id="@+id/cid_ed"
                 android:backgroundTint="@color/colorPrimary"

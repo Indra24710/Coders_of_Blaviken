@@ -106,6 +106,7 @@ public class MapsFragment extends Fragment {
                                     lonList.add(lon);
                                     latList.add(lat);
                                     googleMap.addMarker(new MarkerOptions().position(new LatLng(lat,lon)).title(getString(R.string.criminalid)+tDetect.getString("id")));
+
                                 }
                             }
                         });

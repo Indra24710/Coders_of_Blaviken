@@ -8,6 +8,9 @@
     android:background="@color/bgColorMain"
     android:orientation="vertical"
     tools:context=".Activities.LoginActivity">
+
+
+
     <ImageView
         android:contentDescription="@string/logo"
         android:id="@+id/image_view_logo"
@@ -117,5 +120,20 @@
         android:text="@string/loginbutton" />
 
 
-
+    <Button
+        android:id="@+id/changeLang2"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120sp"
+        android:layout_marginBottom="10sp"
+        android:background="@drawable/button"
+        android:clickable="true"
+        android:focusable="true"
+        android:paddingHorizontal="40dp"
+        android:shadowColor="@color/colorAccent"
+        android:shadowRadius="5"
+        android:text="@string/hindi"
+        android:textColor="@color/colorText"
+        android:textSize="24sp" />
 </LinearLayout>

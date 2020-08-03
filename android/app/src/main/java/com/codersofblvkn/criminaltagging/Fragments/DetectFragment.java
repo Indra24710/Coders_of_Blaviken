@@ -499,6 +499,27 @@ public class DetectFragment extends Fragment {
     }
 
 
+    static String extractInt(String str)
+    {
+        // Replacing every non-digit number
+        // with a space(" ")
+        str = str.replaceAll("[^\\d]", " ");
+
+        // Remove extra spaces from the beginning
+        // and the ending of the string
+        str = str.trim();
+
+        // Replace all the consecutive white
+        // spaces with a single space
+        str = str.replaceAll(" +", " ");
+
+        if (str.equals(""))
+            return "-1";
+
+        return str;
+    }
+
+
     public void finalDecisionMaking(String output)
     {
         getActivity().runOnUiThread(new Runnable() {
@@ -507,16 +528,17 @@ public class DetectFragment extends Fragment {
 
                 if(output.equals("Error Server Disconnected")||output.equals("Exception")||output.equals("Error")||output.equals(""))
                 {
-                    Toast.makeText(getActivity(),"Error occured in the server",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),output,Toast.LENGTH_LONG).show();
                 }
                 else{
                     String message="";
                     try {
-                        message=Integer.toString(new JSONObject(output).getInt("cid"));
+                        String[] arr =extractInt(output).split(" ");
                         Intent intent=new Intent(getActivity(), NotificationActivity.class);
-                        intent.putExtra("cid",":"+message);
+                        intent.putExtra("cid",":"+arr[0]);
+                        Toast.makeText(getActivity(),"message",Toast.LENGTH_LONG).show();
                         startActivity(intent);
-                    } catch (JSONException e) {
+                    } catch (Exception e) {
                         Toast.makeText(getActivity(),"Improper CID Received",Toast.LENGTH_LONG).show();
                     }
                 }

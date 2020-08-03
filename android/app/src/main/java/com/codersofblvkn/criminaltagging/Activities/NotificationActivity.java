@@ -1,7 +1,10 @@
 package com.codersofblvkn.criminaltagging.Activities;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,7 +13,6 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +48,7 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -64,10 +67,15 @@ public class NotificationActivity extends AppCompatActivity implements Serializa
     String name_,gender_,picturePath;
     int severity;
     int cidCheck;
+    String language;
+    private Locale locale;
     @Override
     protected void onStart() {
         super.onStart();
         mapView.onStart();
+        SharedPreferences sp=getSharedPreferences("mycredentials", Context.MODE_PRIVATE);
+        language=sp.getString("language","en");
+        locale = new Locale(language);
     }
 
     @Override
@@ -198,15 +206,15 @@ public class NotificationActivity extends AppCompatActivity implements Serializa
                                 int cid_=tDetect.getInt("cid");
                                 if(cid_==cidCheck)
                                 {
-                                    String[] location =tDetect.getString("location").replace("dot",".").split(",");
+                                    String[] location =tDetect.getString("location").split("Lats");
                                     if(location.length!=2)
                                     {
                                         lat=0;
                                         lon=0;
                                     }
                                     else {
-                                        lat=Double.parseDouble(location[0].substring(0,7));
-                                        lon=Double.parseDouble(location[1].substring(1,8));
+                                        lat=Double.parseDouble(location[0]);
+                                        lon=Double.parseDouble(location[1]);
                                     }
                                     String img=tDetect.getString("rsrc");
                                     String myDate = tDetect.getString("time_stamp");
@@ -326,6 +334,16 @@ public class NotificationActivity extends AppCompatActivity implements Serializa
             networkcallnotification(cidCheck);
         }
         return super.onOptionsItemSelected(item);
+
+    }
+
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        Configuration config = getBaseContext().getResources().getConfiguration();
+        // refresh your views here
+        Locale.setDefault(locale);
+        config.locale = locale;
+        super.onConfigurationChanged(newConfig);
 
     }
 }

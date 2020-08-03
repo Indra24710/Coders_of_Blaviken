@@ -64,4 +64,16 @@
     <string name="nodetavailable">कोई पता नहीं</string>
     <string name="entercid">यहां आपराधिक आईडी दर्ज करें…</string>
     <string name="changeLang">भाषा बदलो</string>
+    <string name="detectionmaps">डिटेक्शन (मैप्स)</string>
+    <string name="detectionlist">डिटेक्शन सूची</string>
+    <string name="identify">की पहचान</string>
+    <string name="alert">चेतावनी</string>
+    <string name="trackalert">ट्रैक अलर्ट करें</string>
+    <string name="detect">"पता लगाएँ "</string>
+    <string name="logout">लॉग आउट</string>
+    <string name="violenceid">हिंसा आईडी</string>
+    <string name="viewvideo">देखें वीडियो</string>
+    <string name="serverrror">सर्वर में त्रुटि आई</string>
+    <string name="impropercid">अनुचित सी.आई.डी. प्राप्त</string>
+    <string name="hindi">English</string>
 </resources>

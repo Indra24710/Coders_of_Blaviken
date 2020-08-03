@@ -64,4 +64,16 @@
     <string name="nodetavailable">No detections available</string>
     <string name="entercid">Enter Criminal ID Here…</string>
     <string name="changeLang">Change Language</string>
+    <string name="detectionmaps">Detections(Maps)</string>
+    <string name="detectionlist">Detections List</string>
+    <string name="identify">Identify</string>
+    <string name="alert">Alert</string>
+    <string name="trackalert">Track Alert</string>
+    <string name="violenceid">Violence ID</string>
+    <string name="detect">Detect</string>
+    <string name="viewvideo">View Video</string>
+    <string name="logout">Logout</string>
+    <string name="serverrror">Error occured in the server</string>
+    <string name="impropercid">Improper CID Received</string>
+    <string name="hindi">हिंदी </string>
 </resources>

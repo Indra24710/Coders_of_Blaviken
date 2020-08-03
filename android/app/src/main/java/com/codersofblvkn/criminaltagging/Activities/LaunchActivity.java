@@ -22,6 +22,10 @@ import io.reactivex.schedulers.Schedulers;
 public class LaunchActivity extends AppCompatActivity {
 ProgressBar progressBar;
     private static final String TAG = "ALERT";
+
+
+
+
     @SuppressLint("CheckResult")
     @Override
     protected void onStart() {
@@ -65,4 +69,5 @@ ProgressBar progressBar;
 
 
     }
+
 }

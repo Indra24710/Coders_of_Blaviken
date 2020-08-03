@@ -36,7 +36,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activities.CrewActivity"></activity>
+        <activity android:name=".Activities.VideoActivity"></activity>
+        <activity android:name=".Activities.ViewViolenceActivity" />
+        <activity android:name=".Activities.ViolenceDashboardActivity" />
+        <activity android:name=".Activities.CrewActivity" />
         <activity android:name=".Activities.SettingsActivity" />
         <activity android:name=".Activities.NotificationActivity" />
         <!--
@@ -54,7 +57,7 @@
         <activity android:name=".Activities.ProfileActivity" />
         <activity
             android:name=".Activities.MainActivity"
-            android:theme="@style/AppThemeMain">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
 

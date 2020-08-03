@@ -18,7 +18,7 @@
         android:paddingHorizontal="40dp"
         android:shadowColor="@color/colorAccent"
         android:shadowRadius="5"
-        android:text="@string/changeLang"
+        android:text="@string/hindi"
         android:textColor="@color/colorText"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"

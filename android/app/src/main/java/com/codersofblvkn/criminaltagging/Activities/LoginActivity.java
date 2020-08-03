@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
@@ -30,11 +31,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.Locale;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
 public class LoginActivity extends AppCompatActivity {
-    Button login_button;
+    Button login_button,changeLang;
     TextView forgot_textview;
     EditText username, password;
     CheckBox show_password,remember_me;
@@ -42,6 +44,9 @@ public class LoginActivity extends AppCompatActivity {
     private ProgressDialog dialog;
     private FirebaseAuth mAuth;
     FirebaseUser currentUser;
+
+    String language;
+    private  Locale locale;
 
     @Override
     protected void onStart() {
@@ -52,6 +57,8 @@ public class LoginActivity extends AppCompatActivity {
         remember_me.setChecked(sp.getBoolean("remembermestatus",false));
         mAuth = FirebaseAuth.getInstance();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
+        language=sp.getString("language","en");
+        locale = new Locale(language);
         currentUser = mAuth.getCurrentUser();
     }
 
@@ -67,6 +74,40 @@ public class LoginActivity extends AppCompatActivity {
         password = findViewById(R.id.password_edittext);
         show_password = findViewById(R.id.show_password);
         remember_me=findViewById(R.id.remember_me);
+        changeLang=findViewById(R.id.changeLang2);
+
+        changeLang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sp=getSharedPreferences("mycredentials", Context.MODE_PRIVATE);
+                language=sp.getString("language","en");
+
+                if(language.substring(0,2).equals("en"))
+                {
+                    locale = new Locale("hi");
+                    SharedPreferences.Editor edit = sp.edit();
+                    edit.putString("language","hi");
+                    edit.commit();
+                    Locale.setDefault(locale);
+                    Configuration config = new Configuration();
+                    config.locale = locale;
+                    getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+                    refresh();
+                }
+                else
+                {
+                    locale = new Locale("en");
+                    SharedPreferences.Editor edit = sp.edit();
+                    edit.putString("language","en");
+                    edit.commit();
+                    Locale.setDefault(locale);
+                    Configuration config = new Configuration();
+                    config.locale = locale;
+                    getBaseContext().getResources().updateConfiguration(config, getBaseContext().getResources().getDisplayMetrics());
+                    refresh();
+                }
+            }
+        });
 
         forgot_textview.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -183,5 +224,20 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onConfigurationChanged(@NonNull Configuration newConfig) {
+        Configuration config = getBaseContext().getResources().getConfiguration();
+        // refresh your views here
+        Locale.setDefault(locale);
+        config.locale = locale;
+        super.onConfigurationChanged(newConfig);
 
+    }
+
+    private void refresh() {
+        finish();
+        Intent intent=new Intent(LoginActivity.this,LaunchActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+    }
 }
