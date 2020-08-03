@@ -3,3 +3,4 @@ Action Certainer is a Resnet based activity recognition algo.
 Violence estimation is the program for finding out the measure of violence in a frame.
 Flask_instant_photo_recognition is the software for instant face recognition.
 Third module is the file where action certainer and emotion recognition is combined for proactive crime prediction.
+Face Recognition SIH is an additional file for face detections and recognition
