@@ -21,7 +21,7 @@
 
 </p>
 
-![screenshot](https://codersofblaviken.blob.core.windows.net/criminal/Jatayu-Web.gif)
+<!--![screenshot](https://codersofblaviken.blob.core.windows.net/criminal/Jatayu-Web.gif)-->
 
 ## About
 
@@ -77,8 +77,3 @@ Our system uses the following tools and technologies:
 
 
 ---
-<!--
-> [amitmerchant.com](https://www.amitmerchant.com) &nbsp;&middot;&nbsp;
-> GitHub [@amitmerchant1990](https://github.com/amitmerchant1990) &nbsp;&middot;&nbsp;
-> Twitter [@amit_merchant](https://twitter.com/amit_merchant)
--->
