@@ -48,7 +48,7 @@
 *	Change language: English to Hindi & vice-versa.
 
 * Cross platform
-  - Windows, macOS and Linux ready.
+  - Windows, macOS, iOS and Linux ready. There is also an exclusive Android application.
 
 ## Web Application
 
