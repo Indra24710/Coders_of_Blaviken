@@ -1,0 +1,101 @@
+.is-light {
+  font-weight: 400;
+}
+
+.is-heavy {
+  font-weight: 800;
+}
+
+.is-italic {
+  font-style: italic;
+}
+
+.is-color-primary {
+  color: #2b292d;
+}
+
+.is-color-blue {
+  color: #0010a1;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+$blue: #0068ff;
+
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Libre+Baskerville:wght@400;700&family=Work+Sans:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
+@import '~bulma/sass/utilities/_all';
+
+// Font Variables
+$family-primary: 'Inter';
+$family-secondary: 'Libre Baskerville';
+$family-sans-serif: 'Work Sans';
+$family-monospace: 'Work Sans';
+
+// Footer
+$footer-padding: 3rem 1.5rem 3rem;
+
+// Buttons
+$button-background-color: $blue;
+$button-color: #ffffff;
+
+// Menu
+$menu-label-font-size: 1em;
+$menu-item-radius: 10px;
+$menu-item-active-background-color: $blue;
+$menu-item-hover-background-color: #f3f6ff;
+$menu-item-active-color: $blue;
+$menu-item-active-background-color: #f3f6ff;
+
+// Table
+$table-row-hover-background-color: #f3f6ff;
+// $table-row-active-background-color: ;
+// $table-row-active-color: #f3f6ff;
+
+// Hero
+$hero-body-padding: 0.5rem 0.5rem;
+
+p.menu-label {
+  font-family: $family-monospace;
+  font-weight: bold;
+  color: black;
+}
+
+// article.tile {
+//   border-color: yellow !important;
+//   border-width: 4px !important;
+// }
+
+.highlight {
+  color: $blue;
+}
+
+.page {
+  background-color: #f3f6ff;
+  border-radius: 40px;
+  padding: 2rem 1.5rem;
+  // margin: 0 auto 0 auto;
+  overflow: hidden;
+}
+
+@import '~bulma';
+
+:root {
+  scroll-behavior: smooth;
+}
+
+// Page transition animation
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.4s ease-in-out;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
