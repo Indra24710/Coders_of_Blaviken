@@ -1,6 +1,6 @@
 <template>
   <div class="page">
-    <PageHead title="Criminals" subtitle="Track & Detect" />
+    <PageHead :title="$t('criminals')" :subtitle="$t('dat')" />
     <Card class="has-table">
       <criminals-table data-url="https://coders-of-blaviken-api.herokuapp.com/api/criminals" />
     </Card>

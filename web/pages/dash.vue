@@ -1,13 +1,13 @@
-<template>
+<template :key="r">
   <div ref="page" class="page">
-    <PageHead title="Watchlist" subtitle="Dashboard" />
+    <PageHead :title="$t('watchlist')" :subtitle="$t('dash')" />
     <b-message type="is-success" has-icon icon="user-secret" icon-pack="fas" size="is-medium">
       <p>Welcome! Track high risk criminals and add criminals to your watchlist!</p>
       <p class="is-size-6">Click on the criminal ID to view criminal details</p>
     </b-message>
     <div class="columns">
       <div class="column is-half">
-        <p class="title is-size-3">Your Watchlist</p>
+        <p class="title is-size-3">{{$t('ywat')}}</p>
         <Card class="has-table">
           <b-table
             striped
@@ -26,8 +26,7 @@
                 <nuxt-link
                   :to="{name: 'criminal-cid', params: {cid: props.row.id}}"
                   class="button is-small is-link has-text-weight-bold"
-                  >{{ props.row.id }}</nuxt-link
-                >
+                >{{ props.row.id }}</nuxt-link>
               </b-table-column>
             </template>
 
@@ -73,8 +72,7 @@
           ref="addToList"
           icon-left="plus-circle"
           icon-pack="fas"
-          >Add to List</b-button
-        >
+        >Add to List</b-button>
       </div>
     </div>
   </div>
@@ -95,6 +93,7 @@ export default {
   data() {
     return {
       email: '',
+      r: 0,
       cid: null,
       watchlist: [],
       selectedCid: null,
@@ -143,6 +142,7 @@ export default {
       });
     // console.log(JSON.stringify(this.criminals));
   },
+
   methods: {
     addToList() {
       console.log(this.selectedCid.toString());
@@ -153,7 +153,9 @@ export default {
           id: this.selectedCid,
         })
         .then(res => {
-          this.forceRerender();
+          window.location.reload();
+          // this.r += 1;
+          // this.$router.app.refresh();
           console.log(res);
         })
         .catch(err => {

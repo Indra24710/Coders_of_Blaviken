@@ -1,7 +1,7 @@
 <template>
   <div class="page">
-    <PageHead title="Detections" subtitle="Track & Detect" />
-    <Card class="has-table">
+    <PageHead :title="$t('detections')" :subtitle="$t('dat')" />
+    <Card class="has-table" title="Click on the icon on the left to open map!">
       <detections-table data-url="https://coders-of-blaviken-api.herokuapp.com/api/detections" />
     </Card>
   </div>
