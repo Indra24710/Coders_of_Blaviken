@@ -33,12 +33,9 @@
           <nuxt-link
             :to="{name: 'criminal-cid', params: {cid: props.row.id}}"
             class="button is-small is-link has-text-weight-bold"
-            >{{ props.row.id }}</nuxt-link
-          >
+          >{{ props.row.id }}</nuxt-link>
         </b-table-column>
-        <b-table-column label="Severity" field="severity" sortable centered>{{
-          props.row.severity
-        }}</b-table-column>
+        <b-table-column label="Severity" field="severity" sortable centered>{{ props.row.severity }}</b-table-column>
         <b-table-column class="image is-square" label="Criminal Database Image">
           <template slot="header" slot-scope="{column}">
             <p class="is-family-monospace">{{ column.label }}</p>

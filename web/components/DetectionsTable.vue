@@ -41,8 +41,7 @@
           <nuxt-link
             :to="{name: 'criminal-cid', params: {cid: props.row.cid}}"
             class="button is-small is-link has-text-weight-bold"
-            >{{ props.row.cid }}</nuxt-link
-          >
+          >{{ props.row.cid }}</nuxt-link>
         </b-table-column>
         <b-table-column label="Location: Coordinates" field="location" sortable centered>
           <template slot="header" slot-scope="{column}">
