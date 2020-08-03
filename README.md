@@ -25,7 +25,7 @@
 
 ## About
 
-<p>Jatayu is an AI-based end-to-end Criminal Detection and Crime Prediction System. At core lies our state-of-the-art deep learning models using which we detect criminals and violence and store it in a database to make available a wide array of features which could be leveraged using our Progressive Web Application and an exclusive Android application. We predict crimes using a combination of emotion recognition and activity recognition DL algorithms so that a crime could be stopped even before it started. Insights are also drawn from the results and performance of our system which could be used for improving the system over the period of time. </p>
+<p>Jatayu is an AI-based end-to-end Criminal Detection and Crime Prediction System. At core lies our state-of-the-art deep learning models using which we detect criminals and violence and store it in a database to make available a wide array of features which could be leveraged using our Progressive Web Application and an exclusive Android application. We predict crimes using a combination of emotion recognition and activity recognition DL models so that a crime could be stopped(from happening) even before it starts. Insights are also drawn from the results and performance of our system which could be used for improving the system over the period of time. </p>
 
 ## Key Features
 
