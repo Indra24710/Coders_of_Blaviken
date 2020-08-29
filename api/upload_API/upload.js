@@ -18,10 +18,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
  
 const azureStorageConfig = {
-    accountName: "codersofblaviken",
-    accountKey: "MET/bNn13lEgVyl5hqa+0/dveoRftdwZJ8iQW+qkwgDsUOgU2MFPl+7FdSii86YV+0XHsx+lJXbbGmv0WUWuzA==",
-    blobURL: "https://codersofblaviken.blob.core.windows.net/",
-    containerName: "detection"
+    accountName: "accountname",
+    accountKey: "accountkey",
+    blobURL: "bloburl",
+    containerName: "container"
 };
  
 uploadFileToBlob = async (directoryPath, file) => {
